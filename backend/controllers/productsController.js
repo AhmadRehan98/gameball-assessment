@@ -6,8 +6,10 @@ const Products = require('../models/productsModel')
 // @route    GET /api/products
 // @access   Public
 const getProducts = asyncHandler(async (req, res) => {
+    // grab "type" from req
+    // query for all products of this type
+    // const type = 
     const products = await Products.find({})
-
     res.status(200).json({products})
 })
 
