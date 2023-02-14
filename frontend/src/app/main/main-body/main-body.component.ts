@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-main-body',
   templateUrl: './main-body.component.html',
   styleUrls: ['./main-body.component.css']
 })
-export class MainBodyComponent {
-  // TODO: can define and use variables here.
-  // pull from backend maybe?
+export class MainBodyComponent implements OnInit{
+  constructor(private http: HttpClient){
+
+  }
+
+  ngOnInit(){
+    // this.fetchFood()
+  }
 }

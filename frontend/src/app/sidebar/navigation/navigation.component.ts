@@ -33,10 +33,10 @@ export class NavigationComponent implements OnInit{
 
 
   private fetchFood(){
-        // returns observable
-        this.http.get('/api/products/food').subscribe((res) =>{
-          console.log(res);
-        })
+    // returns observable
+    this.http.get('/api/products/food').subscribe((res) =>{
+      console.log(res);
+    })
   }
 
   private fetchFruits(){
@@ -54,9 +54,9 @@ export class NavigationComponent implements OnInit{
   }
 
   private fetchElectronics(){
-        // returns observable
-        this.http.get('/api/products/electronics').subscribe((res) =>{
-          console.log(res);
-        })
+    // returns observable
+    this.http.get('/api/products/electronics').subscribe((res) =>{
+      console.log(res);
+    })
   }
 }
