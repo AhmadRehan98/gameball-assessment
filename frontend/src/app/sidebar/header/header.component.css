@@ -4,12 +4,12 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 0px 0px 0px 24px;
-    /* width: 280px; */
+    /* width: 100%; */
     /* height: 32px; */
     flex: none;
-    order: 0;
+    order: 1;
     align-self: stretch;
-    flex-grow: 0;
+    flex-grow: 1;
 }
 .logo{
     /* Auto layout */

@@ -3,14 +3,14 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px 16px;
+    padding: 24px 16px;
     gap: 4px;
-    width: 280px;;
+    /* width: 150%; */
     /* height: 100px; */
     flex: none;
-    order: 2;
+    order: 0;
     align-self: stretch;
-    flex-grow: 0;
+    flex-grow: 1;
 }
 .navigation_nav_item_base_1{
     position: relative;

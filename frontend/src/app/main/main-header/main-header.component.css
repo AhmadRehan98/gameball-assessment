@@ -5,7 +5,7 @@
     align-items: center;
     padding: 0px 64px;
     gap: 24px;
-    width: 918px;
+    /* width: 918px; */
     /* height: 130px; */
     flex: none;
     order: 0;
@@ -18,7 +18,7 @@
     align-items: flex-start;
     padding: 0px;
     gap: 0px;
-    width: 918px;
+    /* width: 918px; */
     /* height: 66px; */
     flex: none;
     order: 0;
@@ -46,7 +46,7 @@
     align-items: flex-start;
     padding: 0px;
     gap: 4px;
-    width: 918px;
+    /* width: 918px; */
     /* height: 66px; */
     flex: none;
     order: 0;
