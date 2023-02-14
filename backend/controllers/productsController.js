@@ -2,13 +2,38 @@ const asyncHandler = require('express-async-handler')
 // Database "table" of id => product name
 const Products = require('../models/productsModel')
 
+// @desc     Get Fruits
+// @route    GET /api/fruits
+// @access   Public
+const getFruits = asyncHandler(async (req, res) => {
+    // grab type fruits from req
+    const fruits = await Products.find({ type: 'fruit' })
+    res.status(200).json({fruits})
+})
+
+// @desc     Get Fruits
+// @route    GET /api/fruits
+// @access   Public
+const getVegetables = asyncHandler(async (req, res) => {
+    // grab type fruits from req
+    const vegetables = await Products.find({ type: 'vegetable' })
+    res.status(200).json({vegetables})
+})
+
+// @desc     Get Fruits
+// @route    GET /api/fruits
+// @access   Public
+const getElectronics = asyncHandler(async (req, res) => {
+    // grab type fruits from req
+    const electronics = await Products.find({ type: 'electronic' })
+    res.status(200).json({electronics})
+})
+
+
 // @desc     Get Product
 // @route    GET /api/products
 // @access   Public
 const getProducts = asyncHandler(async (req, res) => {
-    // grab "type" from req
-    // query for all products of this type
-    // const type = 
     const products = await Products.find({})
     res.status(200).json({products})
 })
@@ -88,6 +113,9 @@ const deleteProduct = asyncHandler(async (req, res) => {
 
 
 module.exports = {
+    getFruits,
+    getVegetables,
+    getElectronics,
     getProducts, 
     setProduct, 
     updateProduct, 

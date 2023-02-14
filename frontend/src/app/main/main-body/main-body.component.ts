@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-body.component.css']
 })
 export class MainBodyComponent {
-
+  // TODO: can define and use variables here.
+  // pull from backend maybe?
 }
