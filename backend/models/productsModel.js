@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 
 // MongoDB has an _id field. don't need to add one
-const productNamesSchema = mongoose.Schema({
+const productsSchema = mongoose.Schema({
     name: {
         type:     String,
         required: [true, 'Please add a name'],
@@ -18,4 +18,4 @@ const productNamesSchema = mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model('ProductNames', productNamesSchema)
+module.exports = mongoose.model('Products', productsSchema)

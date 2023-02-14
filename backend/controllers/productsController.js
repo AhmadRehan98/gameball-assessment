@@ -16,7 +16,9 @@ const getProducts = asyncHandler(async (req, res) => {
 // @route    POST /api/products
 // @access   Private
 const setProduct = asyncHandler(async (req, res) => {
+    // grab product name, type, and price from request body
     const { name, type, price } = req.body
+    // if one field is empty, refuse product creation
     if(!name || !type || !price){
         res.status(400)
         throw new Error('Please add all product fields')
@@ -25,20 +27,20 @@ const setProduct = asyncHandler(async (req, res) => {
     // check if product exists, increment the items in stock
     // not implemented, but it'll go something like this:
     // const productExists = await Products.findOne(req.params.id)
-
     // if (productExists){
     //     res.status(200).json({message: 'product exists. updating items in stock'})
     // call updateProduct()
     // }
     // 
 
+    // create her adds product to DB.
     const product = await Products.create({
         name:  name,
         type:  type,
         price: price
     })
 
-    // product entry created successfully.
+    // if product entry created successfully.
     if(product){
         res.status(201).json({
             message: 'Added product',
