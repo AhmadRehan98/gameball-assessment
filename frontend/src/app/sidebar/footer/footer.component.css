@@ -1,0 +1,153 @@
+.footer{
+    /* Auto layout */
+    z-index: 4;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 16px 32px;
+    gap: 24px;
+    width: 280px;
+    height: 96px;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+.footer_account{
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 24px 32px 0px 8px;
+    gap: 47px;
+    isolation: isolate;
+    width: 100%;
+    height: 64px;
+    border-top: 1px solid #EAECF0;
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+}
+.footer_account_avatar_label_group{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 12px;
+    width: 208px;
+    height: 40px;
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    z-index: 0;
+}
+.footer_account_avatar_label_group_avatar{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    /* background: url(olivia-rhye); */
+    background-color: black;
+    border-radius: 200px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.footer_account_avatar_label_group_avatar_verified_tick{
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    right: 0px;
+    bottom: 0px;
+}
+.footer_account_avatar_label_group_avatar_verified_tick_vector_1{
+    position: absolute;
+    left: 45%;
+    /* right: 29.68%; */
+    top: 20%;
+    /* bottom: 26.56%; */
+    /* background: #FFFFFF; */
+}
+.footer_account_avatar_label_group_avatar_verified_tick_vector_2{
+    position: relative;
+    left: 23.4%;
+    right: -21.7%;
+    top: -14.21%;
+    bottom: 15.92%;
+    /* background: #F3772C; */
+    transform: rotate(22.5deg);
+}
+.footer_account_avatar_label_group_text_and_supporting_text{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    width: 157px;
+    height: 40px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+.footer_account_avatar_label_group_text_and_supporting_text_text{
+    width: 74px;
+    height: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #344054;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.footer_account_avatar_label_group_text_and_supporting_text_supporting_text{
+    width: 157px;
+    height: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #667085;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+.footer_account_button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    gap: 8px;
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    right: -20px;
+    top: 8px;
+    border-radius: 8px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    z-index: 1;
+}
+.footer_account_button_log_out_01{
+    position: absolute;
+    left: 12.5%;
+    right: 12.5%;
+    top: 12.5%;
+    bottom: 12.5%;
+    width: 20px;
+    height: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+/* .footer_account_button_log_out_01_icon{
+
+} */

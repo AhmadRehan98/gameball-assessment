@@ -16,6 +16,7 @@ const getProducts = asyncHandler(async (req, res) => {
 // @route    POST /api/products
 // @access   Private
 const setProduct = asyncHandler(async (req, res) => {
+    // TODO: require 3 fields not just 'text'
     if(!req.body.text){
         res.status(400)
         throw new Error('Please add a text field')

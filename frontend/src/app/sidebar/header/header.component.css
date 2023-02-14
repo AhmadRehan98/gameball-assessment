@@ -1,0 +1,87 @@
+.header{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 0px 0px 24px;
+    /* width: 280px; */
+    /* height: 32px; */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+.logo{
+    /* Auto layout */
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    /* width: 142px; */
+    /* height: 32px; */
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.logo_wrap{
+    position: relative;
+    width: 142px;
+    height: 32px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.logo_wrap_text{
+    position: absolute;
+    left: 31.69%;
+    /* right: -3.52%; */
+    top: 25%;
+    /* bottom: 10%; */
+    font-family: 'SF Compact Text';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 23.7576px;
+    line-height: 36px;
+    color: #FE6215;
+}
+.logo_wrap_frame_1{
+    position: absolute;
+    left: 0%;
+    right: 77.46%;
+    top: 0%;
+    bottom: 0%;
+    background: #FFFFFF;
+}
+.logo_wrap_frame_1_snt_1{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 0px;
+    top: 0px;
+}
+.logo_wrap_frame_1_snt_1_group{
+    position: relative;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+}
+.logo_wrap_frame_1_snt_1_group_vector_1{
+    position: relative;
+    /* left: 25%; */
+    /* right: 25%; */
+    top: 10%;
+    /* bottom: 25%; */
+    /* background: rgba(255, 255, 255, 0.7); */
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  */
+}
+.logo_wrap_frame_1_snt_1_group_vector_2{
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    /* background: linear-gradient(28.99deg, #FE6215 -17.32%, #E2944B 177.16%); */
+}

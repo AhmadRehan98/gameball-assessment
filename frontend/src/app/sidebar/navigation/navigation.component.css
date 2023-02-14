@@ -1,0 +1,152 @@
+.navigation{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 16px;
+    gap: 4px;
+    width: 280px;;
+    /* height: 100px; */
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+}
+.navigation_nav_item_base_1{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+    gap: 8px;
+    /* width: 250px; */
+    /* height: 30px; */
+    background: #FFF6F1; /* TODO: backend highlights this? */
+    border-radius: 6px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+.navigation_nav_item_base_1_content{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 12px;
+    /* width: 224px; */
+    /* height: 24px; */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+}
+.navigation_nav_item_base_1_content_shopping_bag_03{
+    position: relative;
+    width: 24px;
+    height: 24px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+.navigation_nav_item_base_1_content_shopping_bag_03_icon{
+    position: relative;
+    left: 25.33%;
+    /* right: 33.33%; */
+    /* top: 33.33%; */
+    /* bottom: 50%; */
+    /* border: 2px solid #FE6215; */
+}
+.navigation_nav_item_base_1_content_shopping_bag_03_accent{
+    position: relative;
+    /* left: 10%; */
+    /* right: 11.68%; */
+    /* top: 12.5%; */
+    bottom: 65%;
+    /* opacity: 0.75; */
+    /* border: 2px solid #FE6215; */
+}
+.navigation_nav_item_base_1_content_text{
+    position: relative;
+    /* width: 39px; */
+    /* height: 24px; */
+    /* top: 5%; */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 550;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FE6215;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+.navigation_nav_item_base_2{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+    gap: 8px;
+    /* width: 250px; */
+    /* height: 30px; */
+    /* background: #FFF6F1; */
+    border-radius: 6px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+.navigation_nav_item_base_2_content{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 12px;
+    /* width: 224px; */
+    /* height: 24px; */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+}
+.navigation_nav_item_base_2_content_headphones_02{
+    position: relative;
+    width: 24px;
+    height: 24px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+.navigation_nav_item_base_2_content_headphones_02_icon{
+    position: absolute;
+    left: 13.5%;
+    /* right: 85.83%; */
+    top: 50%;
+    /* bottom: 12.5%; */
+    /* border: 2px solid #344054; */
+}
+.navigation_nav_item_base_2_content_headphones_02_accent{
+    position: absolute;
+    left: 1.2%;
+    /* right: 8.33%; */
+    /* top: 12.5%; */
+    /* bottom: 29.17%; */
+    /* opacity: 0.4; */
+    /* border: 2px solid #344054; */
+}
+.navigation_nav_item_base_2_content_text{
+    position: relative;
+    /* left: 10%; */
+    /* width: 85px; */
+    /* height: 24px; */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 550;
+    font-size: 16px;
+    line-height: 24px;
+    color: #344054;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
