@@ -2,30 +2,50 @@ const asyncHandler = require('express-async-handler')
 // Database "table" of id => product name
 const Products = require('../models/productsModel')
 
+
+// TODO: sort collection by something different
+const sortCollection = asyncHandler(async (req, res) => {
+
+}) 
+
 // @desc     Get Fruits
 // @route    GET /api/fruits
 // @access   Public
 const getFruits = asyncHandler(async (req, res) => {
     // grab type fruits from req
-    const fruits = await Products.find({ type: 'fruit' })
+    // sort 1 ascending. -1 descending.
+    const fruits = await Products.find({type:'fruit'}).sort({name: 1})
     res.status(200).json({fruits})
 })
 
 // @desc     Get Fruits
-// @route    GET /api/fruits
+// @route    GET /api/vegetables
 // @access   Public
 const getVegetables = asyncHandler(async (req, res) => {
-    // grab type fruits from req
-    const vegetables = await Products.find({ type: 'vegetable' })
+    // grab type vegetables from req
+    const vegetables = await Products.find({type:'vegetable'}).sort({name: 1})
     res.status(200).json({vegetables})
 })
 
-// @desc     Get Fruits
-// @route    GET /api/fruits
+
+// @desc     Get Food
+// @route    GET /api/food
+// @access   Public
+const getFood = asyncHandler(async (req, res) => {
+    const food = await Products.find(
+        {$or: [
+            {type:'fruit'},
+            {type:'vegetable'}
+        ]}).sort({name: 1})
+    res.status(200).json({food})
+})
+
+
+// @desc     Get Electronics
+// @route    GET /api/electronics
 // @access   Public
 const getElectronics = asyncHandler(async (req, res) => {
-    // grab type fruits from req
-    const electronics = await Products.find({ type: 'electronic' })
+    const electronics = await Products.find({type:'electronic'}).sort({name: 1})
     res.status(200).json({electronics})
 })
 
@@ -113,6 +133,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
 
 
 module.exports = {
+    getFood,
     getFruits,
     getVegetables,
     getElectronics,

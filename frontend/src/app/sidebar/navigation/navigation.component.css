@@ -1,3 +1,6 @@
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:active { text-decoration: none; }
 .navigation{
     position: relative;
     display: flex;
@@ -21,12 +24,19 @@
     gap: 8px;
     /* width: 250px; */
     /* height: 30px; */
-    background: #FFF6F1; /* TODO: backend highlights this? */
+    transition-duration: 0.5s;
+    color: #344054;
     border-radius: 6px;
     flex: none;
     order: 0;
     align-self: stretch;
     flex-grow: 0;
+}
+.navigation_nav_item_base_1:hover{
+    background: #ffeee4;
+}
+.navigation_nav_item_base_1:active{
+    color: #FE6215;
 }
 .navigation_nav_item_base_1_content{
     position: relative;
@@ -76,7 +86,7 @@
     font-weight: 550;
     font-size: 16px;
     line-height: 24px;
-    color: #FE6215;
+    
     flex: none;
     order: 2;
     flex-grow: 0;
@@ -92,11 +102,16 @@
     /* height: 30px; */
     /* background: #FFF6F1; */
     border-radius: 6px;
+    transition-duration: 0.5s;
     flex: none;
     order: 0;
     align-self: stretch;
     flex-grow: 0;
 }
+.navigation_nav_item_base_2:hover{
+    background: #ffeee4;
+}
+
 .navigation_nav_item_base_2_content{
     position: relative;
     display: flex;

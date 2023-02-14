@@ -12,11 +12,31 @@ export class NavigationComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.fetchFruits()
+    // this.fetchFood()
+  }
+
+  onFoodFetch(){
+    this.fetchFood()
   }
 
   onFruitsFetch(){
     this.fetchFruits()
+  }
+
+  onVegetablesFetch(){
+    this.fetchVegetables()
+  }
+
+  onElectronicsFetch(){
+    this.fetchElectronics()
+  }
+
+
+  private fetchFood(){
+        // returns observable
+        this.http.get('/api/products/food').subscribe((res) =>{
+          console.log(res);
+        })
   }
 
   private fetchFruits(){
@@ -24,5 +44,19 @@ export class NavigationComponent implements OnInit{
     this.http.get('/api/products/fruits').subscribe((res) =>{
       console.log(res);
     })
+  }
+
+  private fetchVegetables(){
+    // returns observable
+    this.http.get('/api/products/vegetables').subscribe((res) =>{
+      console.log(res);
+    })
+  }
+
+  private fetchElectronics(){
+        // returns observable
+        this.http.get('/api/products/electronics').subscribe((res) =>{
+          console.log(res);
+        })
   }
 }

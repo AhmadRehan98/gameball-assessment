@@ -2,6 +2,7 @@ const express = require('express')
 const router  = express.Router()
 
 const { 
+    getFood,
     getFruits,
     getVegetables,
     getElectronics,
@@ -11,6 +12,7 @@ const {
     deleteProduct,
 } = require('../controllers/productsController')
 
+router.route('/food').get(getFood)
 router.route('/fruits').get(getFruits)
 router.route('/vegetables').get(getVegetables)
 router.route('/electronics').get(getElectronics)
