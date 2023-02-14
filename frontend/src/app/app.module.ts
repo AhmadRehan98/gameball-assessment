@@ -10,6 +10,7 @@ import { HeaderComponent } from './sidebar/header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MainBodyComponent } from './main/main-body/main-body.component';
 import { MainHeaderComponent } from './main/main-header/main-header.component';
+import { TabsAndFiltersComponent } from './main/main-header/tabs-and-filters/tabs-and-filters.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MainHeaderComponent } from './main/main-header/main-header.component';
     SidebarComponent,
     MainBodyComponent,
     MainHeaderComponent,
+    TabsAndFiltersComponent,
   ],
   imports: [
     BrowserModule,
