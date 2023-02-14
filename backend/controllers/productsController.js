@@ -4,7 +4,7 @@ const Products = require('../models/productsModel')
 
 // @desc     Get Product
 // @route    GET /api/products
-// @access   Private
+// @access   Public
 const getProducts = asyncHandler(async (req, res) => {
     const products = await Products.find({})
 
@@ -16,15 +16,38 @@ const getProducts = asyncHandler(async (req, res) => {
 // @route    POST /api/products
 // @access   Private
 const setProduct = asyncHandler(async (req, res) => {
-    // TODO: require 3 fields not just 'text'
-    if(!req.body.text){
+    const { name, type, price } = req.body
+    if(!name || !type || !price){
         res.status(400)
-        throw new Error('Please add a text field')
+        throw new Error('Please add all product fields')
     }
+
+    // check if product exists, increment the items in stock
+    // not implemented, but it'll go something like this:
+    // const productExists = await Products.findOne(req.params.id)
+
+    // if (productExists){
+    //     res.status(200).json({message: 'product exists. updating items in stock'})
+    // call updateProduct()
+    // }
+    // 
+
     const product = await Products.create({
-        name: req.body.text
+        name:  name,
+        type:  type,
+        price: price
     })
-    res.status(200).json({message: 'Set goals'})
+
+    // product entry created successfully.
+    if(product){
+        res.status(201).json({
+            message: 'Added product',
+            _id:      product.id,
+            name:     product.name,
+            type:     product.type,
+            price:    product.price
+        })
+    }
 })
 
 // @desc     Update products
@@ -36,11 +59,12 @@ const updateProduct = asyncHandler(async (req, res) => {
     if(!product){
         res.status(400)
         throw new Error("Product not found")
+        // or alternatively, call setProduct()
     }
 
     const updatedProduct = await Products.findByIdAndUpdate(req.params.id, req.body, {new: true})
 
-    res.status(200).json({message: `Update product: ${updatedProduct}`})
+    res.status(200).json({message: `Updated product: ${updatedProduct}`})
 })
 
 // @desc     Delete products
