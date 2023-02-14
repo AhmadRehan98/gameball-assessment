@@ -6,15 +6,15 @@ const mongoose = require('mongoose')
 const productNamesSchema = mongoose.Schema({
     name: {
         type:     String,
-        required: true,
+        required: [true, 'Please add a name'],
     },
     type: {
         type:     String,
-        required: true,
+        required: [true, 'Please add a product type'],
     },
     price: {
         type:     Number,
-        required: true,
+        required: [true, 'Please add a price'],
     },
 })
 
