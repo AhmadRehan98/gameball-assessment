@@ -1,8 +1,56 @@
 <div class="main">
     <!-- naming follows figma -->
     <div class="header_section">
-        <app-main-header></app-main-header>
+        <!-- <app-main-header></app-main-header> -->
+        <!-- In figma, this is: Header section -> Container -->
+    <div class="header_container">
+        <div class="page_header">
+            <div class="header_content">
+                <div class="text_and_supporting_text">
+                    <div class="text"> Food </div>
+                    <div class="supporting_text"> Welcome back, Olivia! </div>
+                </div>
+            </div>
+        </div>
+        <!-- this is the bar that contains fruit/vegetable selector and sort by -->
+        <div class="tabs_and_filters">
+            <div class="button_group">
+                <a href="#" (click)="populateTable()" class="button_group_1">
+                    <div class="button_group_1_text">
+                        Fruits
+                    </div>
+                </a>
+                <div class="button_group_2">
+                    <div class="button_group_2_text">
+                        Vegetables
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="button">
+                    <div class="filter-lines">
+                        <div class="icon">
+                            <svg width="20" height="20" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6H14M1.5 1H16.5M6.5 11H11.5" stroke="#344054" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                
+                        </div>
+                    </div>
+                    <div class="button_text">Sort By</div>
+                </div>
+            </div>
+        </div>
     </div>
-    <app-main-body></app-main-body>
-    
+
+    </div>
+    <!-- <app-main-body></app-main-body> -->
+    <div class="body_section">
+        <div class="body_container">
+        <div class="table">
+            <div class="body_content">
+                <ng-container #row> </ng-container>
+            </div>
+        </div>
+        </div>
+    </div>
 </div>

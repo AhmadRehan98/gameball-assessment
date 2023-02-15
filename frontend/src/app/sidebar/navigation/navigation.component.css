@@ -25,19 +25,21 @@ a:active { text-decoration: none; }
     /* width: 250px; */
     /* height: 30px; */
     transition-duration: 0.5s;
-    color: #344054;
+    /* color: #344054; */
+    color: #FE6215;
+    background: #ffeee4;
     border-radius: 6px;
     flex: none;
     order: 0;
     align-self: stretch;
     flex-grow: 0;
 }
-.navigation_nav_item_base_1:hover{
+/* .navigation_nav_item_base_1:hover{
     background: #ffeee4;
 }
 .navigation_nav_item_base_1:active{
     color: #FE6215;
-}
+} */
 .navigation_nav_item_base_1_content{
     position: relative;
     display: flex;
