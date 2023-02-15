@@ -11,6 +11,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { MainBodyComponent } from './main/main-body/main-body.component';
 import { MainHeaderComponent } from './main/main-header/main-header.component';
 import { TabsAndFiltersComponent } from './main/main-header/tabs-and-filters/tabs-and-filters.component';
+import { NameCellComponent } from './main/main-body/name-cell/name-cell.component';
+import { PriceCellComponent } from './main/main-body/price-cell/price-cell.component';
+import { BuyButtonCellComponent } from './main/main-body/buy-button-cell/buy-button-cell.component';
+import { CellDirectiveComponent } from './main/main-body/cell-directive/cell-directive.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { TabsAndFiltersComponent } from './main/main-header/tabs-and-filters/tab
     MainBodyComponent,
     MainHeaderComponent,
     TabsAndFiltersComponent,
+    NameCellComponent,
+    PriceCellComponent,
+    BuyButtonCellComponent,
+    CellDirectiveComponent,
   ],
   imports: [
     HttpClientModule,

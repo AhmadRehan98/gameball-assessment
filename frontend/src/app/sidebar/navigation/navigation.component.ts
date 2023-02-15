@@ -1,6 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Component, OnInit, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+import { Component, OnInit, Injectable, ViewChild, ViewContainerRef } from '@angular/core';
 import { MainBodyComponent } from 'src/app/main/main-body/main-body.component'; 
+import { CellDirectiveComponent } from 'src/app/main/main-body/cell-directive/cell-directive.component'
+import { NameCellComponent } from 'src/app/main/main-body/name-cell/name-cell.component';
 
 export interface dbArray {
   [key: string]: Number[];
@@ -19,7 +21,11 @@ interface dbRow {
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit{
+  @ViewChild(CellDirectiveComponent, {static: true})
+  cellHost!: CellDirectiveComponent;
+  // container1!: ViewContainerRef;
   mainBodyComponent: MainBodyComponent;
+
   constructor(private http: HttpClient, mainBodyComponent: MainBodyComponent){
     this.mainBodyComponent = mainBodyComponent;
   }
@@ -28,7 +34,9 @@ export class NavigationComponent implements OnInit{
   }
 
   onFoodFetch(){
-    this.fetchFood()
+    // this.fetchFood()
+    const viewContainerRef = this.cellHost.viewContainerRef;
+    const componentRef = viewContainerRef.createComponent(NameCellComponent);
   }
 
   onFruitsFetch(){
@@ -47,8 +55,6 @@ export class NavigationComponent implements OnInit{
   private fetchFood(){
     // returns observable
     this.http.get<dbArray>('/api/products/food').subscribe((res) =>{
-      // console.log(res);
-      // console.log(res['food']);
       this.mainBodyComponent.populateTable(res['food']);
     })
   }

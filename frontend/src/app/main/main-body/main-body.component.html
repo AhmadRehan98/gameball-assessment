@@ -3,15 +3,12 @@
 <div class="table">
     <!-- generate and populate cells 1 2 3 -->
     <div class="content">
+        <button cellHost (click)="addRowText('a')"></button>
         <div class="column_1">
-            <div class="table_cell_1">
-                <div class="table_cell_1_text">Null</div>
-            </div>
+            <ng-template #container1></ng-template>
         </div>
         <div class="column_2">
-            <div class="table_cell_2">
-                <div class="table_cell_2_text">$0.00</div>
-            </div>
+            <ng-template #container2></ng-template>
         </div>
         <div class="column_3">
             <div class="table_cell_3">

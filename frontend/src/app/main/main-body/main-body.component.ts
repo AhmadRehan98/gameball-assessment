@@ -1,6 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Component, OnInit, Injectable } from '@angular/core';
-import { dbArray } from 'src/app/sidebar/navigation/navigation.component';
+import { Component, Injectable, ViewChild, ViewContainerRef, OnInit} from '@angular/core';
+import { NameCellComponent } from './name-cell/name-cell.component';
 
 interface dbRowdata {
   name: string;
@@ -17,15 +16,43 @@ interface dbRowdata {
   providedIn: 'root',
 })
 export class MainBodyComponent{
-  constructor(){
+  @ViewChild('container1', {read: ViewContainerRef})
+  container1!: ViewContainerRef;
 
+  constructor(public viewContainerRef: ViewContainerRef){
+    // this.addRowText('b');
   }
-  public populateTable(dbarray : any){
+
+  private onInit(){
+    this.addRowText('b');
+  }
+
+  public populateTable(dbarray: any){
     for (let i = 0; i < dbarray.length; i++) {
       // for each one table data entry{name, type, price}
+
+      // clear ALL container1 (name of product)... how?
+      // this.container1.clear();
       const element: dbRowdata = dbarray[i];
-      const name = element.name, type = element.type, price = element.price
-      
+      const name = element.name, price = element.price;
+      // this.container1.clear();
+      this.addRowText(name);
+      this.addRowPrice(price);
+      this.addRowBuyButton();
     }
   }
+
+  public addRowText(name: String){
+    // const buttonElement = document.querySelector('.column_1');
+    // console.log(buttonElement)
+    this.container1.createComponent(NameCellComponent);
+  }
+
+  private addRowPrice(price: Number){
+
+  }
+  private addRowBuyButton(){
+
+  }
+
 }
