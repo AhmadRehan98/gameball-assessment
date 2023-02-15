@@ -1,5 +1,17 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
+import { MainBodyComponent } from 'src/app/main/main-body/main-body.component'; 
+
+export interface dbArray {
+  [key: string]: Number[];
+}
+
+interface dbRow {
+  name: string;
+  type: string;
+  price: Number;
+}
+
 
 @Component({
   selector: 'app-navigation',
@@ -7,10 +19,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit{
-  constructor(private http: HttpClient){
-
+  mainBodyComponent: MainBodyComponent;
+  constructor(private http: HttpClient, mainBodyComponent: MainBodyComponent){
+    this.mainBodyComponent = mainBodyComponent;
   }
-
   ngOnInit(){
     // this.fetchFood()
   }
@@ -34,8 +46,10 @@ export class NavigationComponent implements OnInit{
 
   private fetchFood(){
     // returns observable
-    this.http.get('/api/products/food').subscribe((res) =>{
-      console.log(res);
+    this.http.get<dbArray>('/api/products/food').subscribe((res) =>{
+      // console.log(res);
+      // console.log(res['food']);
+      this.mainBodyComponent.populateTable(res['food']);
     })
   }
 
