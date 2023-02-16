@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class TableRowComponent {
 
-  public static getInnerHTML(){
+  public static getInnerHTML(name: string, price: Number){
     return `
     <div class="table_row" style="display: flex; 
     flex-direction: row; 
@@ -42,7 +42,7 @@ export class TableRowComponent {
         color: #101828;
         flex: none;
         order: 1;
-        flex-grow: 1;">Null
+        flex-grow: 1;">${name}
       </div>
 
     </div>    
@@ -67,7 +67,7 @@ export class TableRowComponent {
         color: #039855;
         flex: none;
         order: 0;
-        flex-grow: 0;">$0.00
+        flex-grow: 0;">$${price.toFixed(2)}
       </div>
 
     </div>  
@@ -102,7 +102,7 @@ export class TableRowComponent {
         order: 3;
         flex-grow: 0;">
 
-            <div class="table_cell_3_text" style="width: 60px;
+            <div onclick="buyItem(${name})" class="table_cell_3_text" style="width: 60px;
             height: 20px;
             font-family: 'Inter';
             font-style: normal;
@@ -120,4 +120,9 @@ export class TableRowComponent {
     </div>
     `
   }
+  private buyItem(name: string){
+    console.log(`Item ${name} bought!`)
+  }
 }
+
+

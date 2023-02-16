@@ -39,7 +39,7 @@ export class MainBodyComponent{
         const name = element.name, price = element.price;
         // console.log(name);
         // console.log(rowElement);
-        tableElement!.innerHTML += TableRowComponent.getInnerHTML();
+        tableElement!.innerHTML += TableRowComponent.getInnerHTML(name, price);
         this.applyStyle();
       }
     })
