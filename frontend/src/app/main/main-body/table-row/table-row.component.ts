@@ -9,7 +9,8 @@ export class TableRowComponent {
 
   public static getInnerHTML(name: string, price: Number){
     return `
-    <div class="table_row" style="display: flex; 
+    <div class="table_row" 
+    style="display: flex; 
     flex-direction: row; 
     align-items: flex-start; 
     padding: 0px; 
