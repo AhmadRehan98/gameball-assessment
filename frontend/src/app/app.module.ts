@@ -11,6 +11,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { MainBodyComponent } from './main/main-body/main-body.component';
 import { MainHeaderComponent } from './main/main-header/main-header.component';
 import { TabsAndFiltersComponent } from './main/main-header/tabs-and-filters/tabs-and-filters.component';
+import { TableRowComponent } from './main/main-body/table-row/table-row.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TabsAndFiltersComponent } from './main/main-header/tabs-and-filters/tab
     MainBodyComponent,
     MainHeaderComponent,
     TabsAndFiltersComponent,
+    TableRowComponent,
   ],
   imports: [
     HttpClientModule,

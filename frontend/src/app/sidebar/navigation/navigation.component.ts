@@ -1,55 +1,41 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Component, OnInit, Injectable } from '@angular/core';
-import { MainBodyComponent } from 'src/app/main/main-body/main-body.component'; 
-
+import { HttpClient } from '@angular/common/http'
+import { Component} from '@angular/core';
+import { MainBodyComponent } from 'src/app/main/main-body/main-body.component';
 export interface dbArray {
   [key: string]: Number[];
 }
-
-interface dbRow {
-  name: string;
-  type: string;
-  price: Number;
-}
-
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent implements OnInit{
-  mainBodyComponent: MainBodyComponent;
-  constructor(private http: HttpClient, mainBodyComponent: MainBodyComponent){
-    this.mainBodyComponent = mainBodyComponent;
-  }
-  ngOnInit(){
-    // this.fetchFood()
-  }
+export class NavigationComponent{
+  static isFood: boolean = true;
+  mainbodyComponent: MainBodyComponent;
 
+  constructor(private http: HttpClient, mainbodyComponent: MainBodyComponent){
+    this.mainbodyComponent= mainbodyComponent;
+  }
   onFoodFetch(){
     this.fetchFood()
   }
-
   onFruitsFetch(){
     this.fetchFruits()
   }
-
   onVegetablesFetch(){
     this.fetchVegetables()
   }
-
   onElectronicsFetch(){
     this.fetchElectronics()
   }
 
-
   private fetchFood(){
+    NavigationComponent.isFood = true;
     // returns observable
-    this.http.get<dbArray>('/api/products/food').subscribe((res) =>{
-      // console.log(res);
-      // console.log(res['food']);
-      this.mainBodyComponent.populateTable(res['food']);
+    this.http.get('/api/products/food').subscribe((res) =>{
+      console.log(res);
+      this.mainbodyComponent.populateTable('food');
     })
   }
 
@@ -68,9 +54,11 @@ export class NavigationComponent implements OnInit{
   }
 
   private fetchElectronics(){
+    NavigationComponent.isFood = false;
     // returns observable
     this.http.get('/api/products/electronics').subscribe((res) =>{
       console.log(res);
+      this.mainbodyComponent.populateTable('electronics');
     })
   }
 }

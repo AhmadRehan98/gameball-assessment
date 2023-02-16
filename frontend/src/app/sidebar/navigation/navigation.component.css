@@ -25,7 +25,8 @@ a:active { text-decoration: none; }
     /* width: 250px; */
     /* height: 30px; */
     transition-duration: 0.5s;
-    color: #344054;
+    /* color: #344054; */
+    color: #FE6215;
     border-radius: 6px;
     flex: none;
     order: 0;
