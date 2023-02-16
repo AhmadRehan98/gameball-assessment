@@ -1,7 +1,12 @@
-import { Component, Injectable, ViewChild, ViewContainerRef, OnInit} from '@angular/core';
-import { NameCellComponent } from './name-cell/name-cell.component';
+import { HttpClient } from '@angular/common/http'
+import { Component, ViewChild, ViewContainerRef, Injectable} from '@angular/core';
+import { TableRowComponent } from './table-row/table-row.component';
 
-interface dbRowdata {
+interface dbArray {
+  [key: string]: Number[];
+}
+
+interface dbRow {
   name: string;
   type: string;
   price: Number;
@@ -16,43 +21,33 @@ interface dbRowdata {
   providedIn: 'root',
 })
 export class MainBodyComponent{
-  @ViewChild('container1', {read: ViewContainerRef})
-  container1!: ViewContainerRef;
-
-  constructor(public viewContainerRef: ViewContainerRef){
-    // this.addRowText('b');
+  // tableRowComponent: TableRowComponent;
+  constructor(private http: HttpClient){
+    // this.tableRowComponent = tableRowComponent;
   }
 
-  private onInit(){
-    this.addRowText('b');
+  
+  public populateTable(){
+    this.http.get<dbArray>('/api/products/fruits').subscribe((res) =>{
+      const tableElement = document.querySelector('.table');
+      // console.log(tableElement);
+      tableElement!.innerHTML = ''
+      const dbarray = res['fruits'];
+      for (let i = 0; i < dbarray.length; i++) {
+        // for each one table data entry{name, type, price}
+        const element: dbRow = (dbarray[i] as any);
+        const name = element.name, price = element.price;
+        // console.log(name);
+        // console.log(rowElement);
+        tableElement!.innerHTML += TableRowComponent.getInnerHTML();
+        this.applyStyle();
+      }
+    })
   }
 
-  public populateTable(dbarray: any){
-    for (let i = 0; i < dbarray.length; i++) {
-      // for each one table data entry{name, type, price}
-
-      // clear ALL container1 (name of product)... how?
-      // this.container1.clear();
-      const element: dbRowdata = dbarray[i];
-      const name = element.name, price = element.price;
-      // this.container1.clear();
-      this.addRowText(name);
-      this.addRowPrice(price);
-      this.addRowBuyButton();
-    }
+  private applyStyle(){
+    const text = document.querySelector('.table_cell_1_text');
+    console.log(text);
+    text?.classList.add('table_cell_1_text');
   }
-
-  public addRowText(name: String){
-    // const buttonElement = document.querySelector('.column_1');
-    // console.log(buttonElement)
-    this.container1.createComponent(NameCellComponent);
-  }
-
-  private addRowPrice(price: Number){
-
-  }
-  private addRowBuyButton(){
-
-  }
-
 }

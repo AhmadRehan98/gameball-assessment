@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MainBodyComponent } from '../../main-body/main-body.component';
 
 @Component({
   selector: 'app-tabs-and-filters',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./tabs-and-filters.component.css']
 })
 export class TabsAndFiltersComponent {
+  mainbodyComponent: MainBodyComponent;
 
+  constructor(mainbodyComponent: MainBodyComponent){
+    this.mainbodyComponent = mainbodyComponent;
+  }
 }
