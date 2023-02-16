@@ -9,7 +9,6 @@
 - In rootdir `gameball-assessment`, type `npm run dev` or `npm run server && npm run client`
 
 ## TODO:
-- Complete frontend pagination implementation.
 - Implement sorting options.
 - Fix some scaling in UI. remove some fixed length and widths.
 
@@ -25,6 +24,7 @@
 - Used node.js.
 - Public API GET: `/api/products/<product-name>`, where product name is: food, fruits, vegetables, electronics. This is the only routes the frontend currently uses.
 - Skeleton functionality for POST, PUT, and DELETE, not fully implemented since it isn't required in the handout.
+- The only sorting that happens server side is always returning database queries in ascending order. the sort button currently doesn't work.
 
 
 ## [Database](./backend/config/)
