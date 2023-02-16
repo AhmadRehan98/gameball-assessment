@@ -25,6 +25,7 @@ interface dbRow {
 export class MainBodyComponent{
   dbArray: any;
   dbPagesArray: any;
+  isAscending: boolean = true;
 
   constructor(private http: HttpClient){}
 
@@ -76,6 +77,9 @@ export class MainBodyComponent{
     const tableElement = document.querySelector('.table');
     tableElement!.innerHTML = ''
 
+    // check for sort order
+
+
     for (let i=0; i<this.dbPagesArray[pageNumber].length; i++) {
       const element: dbRow = (this.dbPagesArray[pageNumber][i] as any);
       var name = element.name, price = element.price;
@@ -92,17 +96,23 @@ export class MainBodyComponent{
       tableElement!.innerHTML += TableRowComponent.getInnerHTML(name, price);
       
       // JS to console.log item bought. can't get exact item name.
-      // document.getElementById('buy_now')!.addEventListener("click", function(event) {
-      //   (function(event: any) {
-      //     if (event.target instanceof Element){
-      //       console.log(`Item Bought!`);
-      //     }
-      //   }).call(document.getElementById('buy_now'), event);
-      // })
-      // if(event.target.className=="table_cell_3_button"){
-      //   console.log(`Item Bought!`);
-      // }
+      document.addEventListener('click', event => {
+          if (event.target instanceof Element){
+            if(event.target.className=="table_cell_3_button"){
+              console.log("Item Bought!");
+            }
+          }
+          lastMove = Date.now();
+      });
 
+      // // event listener for sort button
+      // document.getElementById('sort_button')!.addEventListener("click", function(event) {
+      //   (function(event: any) {
+      //     console.log(`Sort Button`);
+      //   }).call(document.getElementById('sort_button'), event);
+      // })
+
+      // event listener for page number buttons
       var lastMove = 0;
       document.addEventListener('click', event => {
         // only do clicks every 100ms
@@ -113,7 +123,6 @@ export class MainBodyComponent{
             }
           }
           lastMove = Date.now();
-          // return;
         }
       });
     }
