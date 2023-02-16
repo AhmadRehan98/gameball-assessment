@@ -26,3 +26,17 @@
     align-self: stretch;
     flex-grow: 1;
 }
+.body_section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    /* gap: 24px; */
+    /* width: 1160px; */
+    /* width: 100%; */
+    /* height: 862px; */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+}
