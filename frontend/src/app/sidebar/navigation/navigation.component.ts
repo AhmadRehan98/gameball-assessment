@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http'
 import { Component} from '@angular/core';
 import { MainBodyComponent } from 'src/app/main/main-body/main-body.component';
 export interface dbArray {
@@ -14,7 +13,7 @@ export class NavigationComponent{
   static isFood: boolean = true;
   mainbodyComponent: MainBodyComponent;
 
-  constructor(private http: HttpClient, mainbodyComponent: MainBodyComponent){
+  constructor(mainbodyComponent: MainBodyComponent){
     this.mainbodyComponent= mainbodyComponent;
   }
   onFoodFetch(){

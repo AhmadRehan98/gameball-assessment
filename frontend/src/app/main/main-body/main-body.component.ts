@@ -58,7 +58,6 @@ export class MainBodyComponent{
         const element: dbRow = (dbarray[i] as any);
         var   name = element.name, price = element.price;
 
-        
         const itemsPerPage = 9;
         const numberOfPages = Math.ceil(dbarray.length / itemsPerPage);
         this.insertPageNumber(numberOfPages);
@@ -73,13 +72,12 @@ export class MainBodyComponent{
         // append one row to the table
         tableElement!.innerHTML += TableRowComponent.getInnerHTML(name, price);
         
-
         // JS to console.log item bought. can't get exact item name.
         document.getElementById('buy_now')!.addEventListener("click", function(event) {
           (function(event: any) {
             console.log(`Item Bought!`);
           }).call(document.getElementById('buy_now'), event);
-          })
+        })
       }
     })
   }
