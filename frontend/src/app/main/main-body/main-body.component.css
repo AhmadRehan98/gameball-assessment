@@ -5,7 +5,7 @@
     padding: 0px;
     gap: 24px;
     width: 975px;
-    height: 708px;
+    min-height: 708px;
     flex: none;
     order: 1;
     flex-grow: 1;

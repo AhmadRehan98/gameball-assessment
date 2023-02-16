@@ -5,7 +5,6 @@ const Products = require('../models/productsModel')
 
 // TODO: sort collection by something different
 const sortCollection = asyncHandler(async (req, res) => {
-
 }) 
 
 // @desc     Get Fruits
@@ -14,7 +13,7 @@ const sortCollection = asyncHandler(async (req, res) => {
 const getFruits = asyncHandler(async (req, res) => {
     // grab type fruits from req
     // sort 1 ascending. -1 descending.
-    const fruits = await Products.find({type:'fruit'}).sort({name: 1})
+    const fruits = await Products.find({type:'fruit'}).sort({name: 1});
     res.status(200).json({fruits})
 })
 
@@ -47,15 +46,6 @@ const getFood = asyncHandler(async (req, res) => {
 const getElectronics = asyncHandler(async (req, res) => {
     const electronics = await Products.find({type:'electronic'}).sort({name: 1})
     res.status(200).json({electronics})
-})
-
-
-// @desc     Get Product
-// @route    GET /api/products
-// @access   Public
-const getProducts = asyncHandler(async (req, res) => {
-    const products = await Products.find({})
-    res.status(200).json({products})
 })
 
 
@@ -137,7 +127,6 @@ module.exports = {
     getFruits,
     getVegetables,
     getElectronics,
-    getProducts, 
     setProduct, 
     updateProduct, 
     deleteProduct,
