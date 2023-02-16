@@ -35,7 +35,7 @@
     flex: none;
     order: 0;
     align-self: stretch;
-    flex-grow: 1;
+    flex-grow: 0;
 }
 .content{
     display: flex;

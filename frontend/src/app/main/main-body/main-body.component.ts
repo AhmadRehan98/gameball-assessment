@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http'
 import { Component, Injectable} from '@angular/core';
 import { TableRowComponent } from './table-row/table-row.component';
 import { PageNumberComponent } from './page-number/page-number.component';
+import { last } from 'rxjs';
 
 interface dbArray {
   [key: string]: Number[];
@@ -22,9 +23,12 @@ interface dbRow {
   providedIn: 'root',
 })
 export class MainBodyComponent{
-  constructor(private http: HttpClient){  }
+  dbArray: any;
+  dbPagesArray: any;
 
-  insertPageNumber(numOfPages: Number){
+  constructor(private http: HttpClient){}
+
+  private insertPageNumber(numOfPages: Number){
     // this.page_number.clear();
     const pageNumber = document.querySelector('.pagination_numbers');
     // empty any previous numbers
@@ -35,15 +39,9 @@ export class MainBodyComponent{
   }
 
   public populateTable(type: string){
-    if (type == 'fruits'){
-      console.log('clicked on fruits')
-    }
-    else if (type == 'vegetables'){
-      console.log('clicked on vegetables')
-    }
-    else if (type == 'electronics'){
-      console.log('clicked on electronics')
-    }
+    // empty dbTables from previous queries
+    this.dbArray = []
+    this.dbPagesArray = []
 
     // communicate with backend to get products of <type> 
     this.http.get<dbArray>(`/api/products/${type}`).subscribe((res) =>{
@@ -52,33 +50,72 @@ export class MainBodyComponent{
 
       // empty the table
       tableElement!.innerHTML = ''
-      const dbarray = res[type];
-      // for each one table data entry
-      for (let i = 0; i < dbarray.length; i++) {
-        const element: dbRow = (dbarray[i] as any);
-        var   name = element.name, price = element.price;
+      this.dbArray = res[type];
 
-        const itemsPerPage = 9;
-        const numberOfPages = Math.ceil(dbarray.length / itemsPerPage);
-        this.insertPageNumber(numberOfPages);
+      // calculate number of pages required
+      const itemsPerPage = 9;
+      const numberOfPages = Math.ceil(this.dbArray.length / itemsPerPage);
+      this.insertPageNumber(numberOfPages);
 
-        /* block to capitalize names */
-        const name_array = name.split(" ");
-        for (let i = 0; i < name_array.length; i++) {
-          name_array[i] = name_array[i][0].toUpperCase() + name_array[i].substr(1);
-        }
-        name = name_array.join(" ");
-        /* end of block */
-        // append one row to the table
-        tableElement!.innerHTML += TableRowComponent.getInnerHTML(name, price);
-        
-        // JS to console.log item bought. can't get exact item name.
-        document.getElementById('buy_now')!.addEventListener("click", function(event) {
-          (function(event: any) {
-            console.log(`Item Bought!`);
-          }).call(document.getElementById('buy_now'), event);
-        })
+      // fill <itemsPerPage> items in each dbPagesArray index
+      for (let i=0; i <this.dbArray.length; i+=itemsPerPage){
+        this.dbPagesArray.push(this.dbArray.slice(i, i + itemsPerPage));
       }
+      // console.log(this.dbPagesArray);
+
+      // show items from dbPagesArray[0]. the default is as if we clicked page number 1.
+      this.showOnePage(1);
     })
+  }
+
+  private showOnePage(num: number){
+    // for each one table data entry
+    const pageNumber = num - 1;
+
+    // empty table from previous content
+    const tableElement = document.querySelector('.table');
+    tableElement!.innerHTML = ''
+
+    for (let i=0; i<this.dbPagesArray[pageNumber].length; i++) {
+      const element: dbRow = (this.dbPagesArray[pageNumber][i] as any);
+      var name = element.name, price = element.price;
+
+      /* block to capitalize names */
+      const name_array = name.split(" ");
+      for (let i = 0; i < name_array.length; i++) {
+        name_array[i] = name_array[i][0].toUpperCase() + name_array[i].substr(1);
+      }
+      name = name_array.join(" ");
+      /* end of block */
+
+      // append one row to the table
+      tableElement!.innerHTML += TableRowComponent.getInnerHTML(name, price);
+      
+      // JS to console.log item bought. can't get exact item name.
+      // document.getElementById('buy_now')!.addEventListener("click", function(event) {
+      //   (function(event: any) {
+      //     if (event.target instanceof Element){
+      //       console.log(`Item Bought!`);
+      //     }
+      //   }).call(document.getElementById('buy_now'), event);
+      // })
+      // if(event.target.className=="table_cell_3_button"){
+      //   console.log(`Item Bought!`);
+      // }
+
+      var lastMove = 0;
+      document.addEventListener('click', event => {
+        // only do clicks every 100ms
+        if(Date.now() - lastMove > 100) {
+          if (event.target instanceof Element){
+            if(event.target.className=="pagination_number_container"){
+              this.showOnePage(parseInt(event.target.innerHTML));
+            }
+          }
+          lastMove = Date.now();
+          // return;
+        }
+      });
+    }
   }
 }
