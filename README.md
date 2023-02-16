@@ -27,7 +27,7 @@
 - Skeleton functionality for POST, PUT, and DELETE, not fully implemented since it isn't required in the handout.
 
 
-## Database
+## [Database](./backend/config/)
 - I used MongoDB for my convenience.
 - Since I used a non-sql DB, I added all data fields in one collection, since there shouldn't be a benefit in normalizing the data(?). 
 - I've also dropped the data related to number of items and just assumed all items are available in unlimited quantity.
