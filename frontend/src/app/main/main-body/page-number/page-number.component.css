@@ -1,0 +1,21 @@
+.pagination_number_container{
+    width: 20px;
+    height: 20px;
+    flex-direction: column;
+    padding: 8px;
+    gap: 15px;
+    background: #f0f0f0;
+    align-items: center;
+    border-radius:50%;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    color: #101828;
+    text-align: center;
+}
+.pagination_number_container:hover{
+    background-color: #FE6215;
+    color: #FFFFFF;
+}
