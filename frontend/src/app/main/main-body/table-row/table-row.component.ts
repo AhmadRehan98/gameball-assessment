@@ -86,7 +86,9 @@ export class TableRowComponent {
       align-self: stretch;
       flex-grow: 0;">
 
-        <div class="table_cell_3_button" style="box-sizing: border-box;
+        <a href='#' id="buy_now" class="table_cell_3_button" 
+        style="box-sizing: border-box;
+        text-decoration:none;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -102,7 +104,7 @@ export class TableRowComponent {
         order: 3;
         flex-grow: 0;">
 
-            <div onclick="buyItem(${name})" class="table_cell_3_text" style="width: 60px;
+            <div class="table_cell_3_text" style="width: 60px;
             height: 20px;
             font-family: 'Inter';
             font-style: normal;
@@ -115,7 +117,8 @@ export class TableRowComponent {
             flex-grow: 0;">
               Buy Now
             </div>
-        </div>
+
+        </a>
     </div>
     </div>
     `

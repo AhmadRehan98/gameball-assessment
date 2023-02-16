@@ -4,8 +4,8 @@
     flex-direction: column;
     align-items: center;
     padding: 0px 64px;
-    gap: 24px;
-    /* width: 918px; */
+    gap: 12px;
+    width: 918px;
     /* height: 130px; */
     flex: none;
     order: 0;

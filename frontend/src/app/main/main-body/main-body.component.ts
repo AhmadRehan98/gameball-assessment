@@ -26,28 +26,43 @@ export class MainBodyComponent{
     // this.tableRowComponent = tableRowComponent;
   }
 
-  
-  public populateTable(){
-    this.http.get<dbArray>('/api/products/fruits').subscribe((res) =>{
+  public populateTable(type: string){
+    if (type == 'fruits'){
+      console.log('clicked on fruits')
+    }
+    else if (type == 'vegetables'){
+      console.log('clicked on vegetables')
+    }
+    else if (type == 'electronics'){
+      console.log('clicked on electronics')
+    }
+
+    this.http.get<dbArray>(`/api/products/${type}`).subscribe((res) =>{
       const tableElement = document.querySelector('.table');
-      // console.log(tableElement);
+      // empty the table
       tableElement!.innerHTML = ''
-      const dbarray = res['fruits'];
+      const dbarray = res[type];
+      // for each one table data entry
       for (let i = 0; i < dbarray.length; i++) {
-        // for each one table data entry{name, type, price}
         const element: dbRow = (dbarray[i] as any);
-        const name = element.name, price = element.price;
-        // console.log(name);
-        // console.log(rowElement);
+        var   name = element.name, price = element.price;
+        // block to capitalize names
+        const name_array = name.split(" ");
+        for (let i = 0; i < name_array.length; i++) {
+          name_array[i] = name_array[i][0].toUpperCase() + name_array[i].substr(1);
+        }
+        name = name_array.join(" ");
+
+        // append one row to the table
         tableElement!.innerHTML += TableRowComponent.getInnerHTML(name, price);
-        this.applyStyle();
+
+        // JS to console.log item bought. can't get exact item name.
+        document.getElementById('buy_now')!.addEventListener("click", function(event) {
+          (function(event: any) {
+            console.log(`Item Bought!`);
+          }).call(document.getElementById('buy_now'), event);
+          })
       }
     })
-  }
-
-  private applyStyle(){
-    const text = document.querySelector('.table_cell_1_text');
-    console.log(text);
-    text?.classList.add('table_cell_1_text');
   }
 }
